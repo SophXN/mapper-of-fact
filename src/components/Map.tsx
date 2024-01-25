@@ -29,7 +29,7 @@ export const Map: React.FC = () => {
   }, [lng, lat, zoom]); // Added dependencies to useEffect
 
   return (
-    <div>
+    <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
