@@ -72,3 +72,13 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Fact {
+    id          Int
+    title       String?
+    description String? @db.LongText
+    image       String?
+    source      String?
+
+    @@id([id])
+}

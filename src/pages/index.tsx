@@ -1,6 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/link";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Map } from "~/components/Map";
 import { api } from "~/utils/api";
