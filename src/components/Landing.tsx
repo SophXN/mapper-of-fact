@@ -7,6 +7,7 @@ export const Landing: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="h-screen w-screen bg-black px-6 py-20 sm:py-2">
+      <Map />
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -14,7 +15,6 @@ export const Landing: React.FC = () => {
       >
         <HeartIcon className="h-5 w-5" aria-hidden="true" />
       </button>
-      <Map />
       <Sidebar open={open} setOpen={setOpen} />
     </div>
   );
