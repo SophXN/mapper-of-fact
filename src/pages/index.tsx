@@ -1,9 +1,9 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Map } from "~/components/Map";
 import { api } from "~/utils/api";
 import { Landing } from "~/components/Landing";
+import { Header } from "~/components/Header";
 
 export default function Home() {
   const hello = api.post.hello.useQuery({ text: "from tRPC" });
@@ -16,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" flex flex-col items-center justify-center bg-black ">
+        <Header />
         <Landing />
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <div className="flex flex-col items-center gap-2">

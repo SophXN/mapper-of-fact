@@ -4,7 +4,6 @@ import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loade
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic29waHhuIiwiYSI6ImNscm1xZ21vdTExbmwyd2tpdmVmODUxb2QifQ.i5vkGZLlgjIpHgS0ZqpXcA";
 
-// Assuming you have the mapbox types installed (@types/mapbox-gl)
 export const Map: React.FC = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
@@ -26,11 +25,11 @@ export const Map: React.FC = () => {
       setLat(parseFloat(map.current!.getCenter().lat.toFixed(4)));
       setZoom(parseFloat(map.current!.getZoom().toFixed(2)));
     });
-  }, [lng, lat, zoom]); // Added dependencies to useEffect
+  }, [lng, lat, zoom]);
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
-      <div className="sidebar">
+    <div className="relative flex flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+      <div className="sidebar w 20 absolute bottom-0 right-0 h-8">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
       <div ref={mapContainer} className="map-container" />
