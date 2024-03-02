@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { SidebarCardList } from "./SidebarCardList";
 
 interface SidebarProps {
   open: boolean;
@@ -46,7 +47,7 @@ export const Sidebar = ({ open, setOpen }: SidebarProps) => {
                       </div>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                      {/* Your content */}
+                      <SidebarCardList />
                     </div>
                   </div>
                 </Dialog.Panel>
