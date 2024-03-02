@@ -1,16 +1,16 @@
-import { Fragment, useState } from "react";
+/* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  ExclamationTriangleIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-export const Modal = ({
+export const FactModal = ({
   open,
   setOpen,
+  imageUrl,
 }: {
   open: boolean;
   setOpen: (state: boolean) => void;
+  imageUrl: string;
 }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -51,23 +51,22 @@ export const Modal = ({
                 </div>
                 <div className="sm:flex sm:items-start">
                   <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                    <ExclamationTriangleIcon
-                      className="h-6 w-6 text-red-600"
-                      aria-hidden="true"
-                    />
+                    🧠
                   </div>
                   <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                     <Dialog.Title
                       as="h3"
                       className="text-base font-semibold leading-6 text-gray-900"
                     >
-                      Deactivate account
+                      Fact Title Goes Here
                     </Dialog.Title>
+                    <div className="aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg">
+                      <img src={imageUrl} alt="" className="object-cover" />
+                    </div>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        Are you sure you want to deactivate your account? All of
-                        your data will be permanently removed from our servers
-                        forever. This action cannot be undone.
+                        Fun Fact here like: The average person spends 6 months
+                        of their lifetime waiting on a red light to turn green.
                       </p>
                     </div>
                   </div>
@@ -75,17 +74,17 @@ export const Modal = ({
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                   <button
                     type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                    className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     onClick={() => setOpen(false)}
                   >
-                    Deactivate
+                    Favorite
                   </button>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     onClick={() => setOpen(false)}
                   >
-                    Cancel
+                    Share
                   </button>
                 </div>
               </Dialog.Panel>
