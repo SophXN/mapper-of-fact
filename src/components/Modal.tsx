@@ -3,14 +3,21 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
+interface Fact {
+  id: number;
+  title: string | null;
+  description: string | null;
+  image: string | null;
+  source: string | null;
+}
 export const FactModal = ({
   open,
   setOpen,
-  imageUrl,
+  fact,
 }: {
   open: boolean;
   setOpen: (state: boolean) => void;
-  imageUrl: string;
+  fact: Fact;
 }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -58,15 +65,18 @@ export const FactModal = ({
                       as="h3"
                       className="text-base font-semibold leading-6 text-gray-900"
                     >
-                      Fact Title Goes Here
+                      {fact.title}
                     </Dialog.Title>
                     <div className="aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg">
-                      <img src={imageUrl} alt="" className="object-cover" />
+                      <img
+                        src={fact.image ?? ""}
+                        alt=""
+                        className="object-cover"
+                      />
                     </div>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        Fun Fact here like: The average person spends 6 months
-                        of their lifetime waiting on a red light to turn green.
+                        {fact.description}
                       </p>
                     </div>
                   </div>
@@ -84,7 +94,13 @@ export const FactModal = ({
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     onClick={() => setOpen(false)}
                   >
-                    Share
+                    <a
+                      href={fact.source ?? ""}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Source
+                    </a>
                   </button>
                 </div>
               </Dialog.Panel>

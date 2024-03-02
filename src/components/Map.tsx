@@ -9,7 +9,7 @@ export const Map: React.FC = () => {
   const map = useRef<mapboxgl.Map | null>(null);
   const [lng, setLng] = useState<number>(-70.9);
   const [lat, setLat] = useState<number>(42.35);
-  const [zoom, setZoom] = useState<number>(9);
+  const [zoom, setZoom] = useState<number>(1);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
